@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/info_vod_layer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/info_vod_thumbnail"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        tools:background="@color/half_black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@null"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/info_vod_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:maxEms="20"
+            android:textColor="@color/black"
+            android:textSize="11sp"/>
+
+
+        <TextView
+            android:id="@+id/info_vod_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="top|left"
+            android:textColor="@color/colorPrimary"
+            android:textSize="11sp"/>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

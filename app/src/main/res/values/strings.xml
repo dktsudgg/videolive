@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">스트리밍1TV</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+
+    <!-- Auth -->
+    <string name="dialog_message">로그인한 사용자만 가능한 기능입니다. 로그인하시겠습니까?</string>
+    <string name="dialog_id">ID</string>
+    <string name="dialog_password">Password</string>
+    <string name="dialog_googlebtn">Google Login</string>
+    <string name="auth_regisText">아직도 회원이 아니신가요? 가입하기</string>
+    <string name="auth_tv1">구글로 로그인</string>
+
+    <!-- Reg -->
+    <string name="reg_title_text">회원가입</string>
+    <string name="reg_email_text">E-mail</string>
+    <string name="reg_nickname_text">닉네임</string>
+
+    <!-- stream -->
+    <string name="sys">시스템</string>
+    <string name="system_message"> 방송이 시작되었습니다.</string>
+    <string name="finish_stream">방송이 종료되었습니다.</string>
+    <string name="stream_title">님 안드로이드에서 방송중</string>
+    <string name="stream_url">rtsp://13.125.84.95:1935/live/</string>
+    <string name="stream_thumbnail">thumbnailUrl</string>
+    <string name="stream_title_dialog">제목 변경</string>
+    <string name="stream_enable_dialog">확인</string>
+    <string name="stream_disable_dialog">취소</string>
+    <string name="stream_pressed_title_dialog">종료하기</string>
+
+    <!-- Info -->
+    <string name="info_title">님 방송국</string>
+    <string name="info_oneline_notice">한줄 공지</string>
+    <string name="info_vod_replay">VOD 다시보기</string>
+    <string name="info_notice_title">한줄 공지</string>
+
+    <!-- firebase Stroage path -->
+    <string name="default_path">FirebaseStorageUrl</string>
+
+</resources>
