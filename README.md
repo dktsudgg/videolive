@@ -14,6 +14,9 @@
     
     Wowza 서버를 사용할 경우 **TCP 8086 ~ 8088 / UDP 6970 ~ 9999** 포트를 개방해주셔야 합니다.
     
+
+    [Firebase 연동](https://www.youtube.com/watch?v=u1CE6UtLbmQ)
+  
  
  주요 라이브러리
  ------
@@ -23,6 +26,7 @@
  * [Exoplayer](https://github.com/google/ExoPlayer)
  * [rtsp-rtmp](https://github.com/pedroSG94/rtmp-rtsp-stream-client-java)
  * Firbase Auth, Database, Storage 등
+
 
 
 핵심 기능
@@ -66,3 +70,43 @@
   <img width="200" src="https://github.com/lhoyong/videolive/blob/master/img/info.png">
   <img width="200" src="https://github.com/lhoyong/videolive/blob/master/img/oneline.png">
 </div>
+
+
+코드
+-----
+
+* 영상 RTSP송출
+
+             private RtspCamera1 rtspCamera1;
+            
+             rtspCamera1.setAuthorization(stream_config.user, stream_config.password);
+             rtspCamera1.setVideoBitrateOnFly(stream_config.bitrate);
+             rtspCamera1.setProtocol(Protocol.UDP);
+             rtspCamera1.prepareAudio(128 * 1024, stream_config.samplerate, true, false, false);
+             rtspCamera1.prepareVideo(stream_config.width, stream_config.height, stream_config.fps, stream_config.bitrate, false, 0);
+             rtspCamera1.getResolutionsBack().get(8);
+
+             rtspCamera1.enableVideo();
+             rtspCamera1.enableAudio();
+             rtspCamera1.startStream(url);
+         
+    [StreamPresenter.java 120:129](https://github.com/lhoyong/videolive/blob/master/app/src/main/java/com/thoingthoing/videolive/ui/stream/presenter/StreamPresenter.java)
+         
+* ExoPlayer
+
+                if (player == null) {
+                 TrackSelection.Factory factory = new AdaptiveTrackSelection.Factory(def);
+
+                  player = ExoPlayerFactory.newSimpleInstance(new DefaultRenderersFactory(context),
+                    new DefaultTrackSelector(factory), new DefaultLoadControl());
+                  player.addListener(componentListener);
+                  player.setVideoDebugListener(componentListener);
+                  player.setAudioDebugListener(componentListener);
+                  playerView.setPlayer(player);
+                  player.setPlayWhenReady(ready);
+                }
+                MediaSource mediaSource = buildMediaSource(Uri.parse("StreamingServerUrl"));
+
+               player.prepare(mediaSource, true, false);
+    [StreamPlayerPresenter.java 144:157](https://github.com/lhoyong/videolive/blob/master/app/src/main/java/com/thoingthoing/videolive/ui/player/presenter/StreamPlayerPresenter.java)
+    
